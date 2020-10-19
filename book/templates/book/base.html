@@ -1,0 +1,120 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="Keywords" content="聚宝盆">
+    <meta name="description" content="聚宝盆网是一个专业PDF书籍收集和好书推荐的专业网站。">
+    <meta name="baidu-site-verification" content="code-SiNs0xG8Kx" />
+        {% block css%}{% endblock %}
+    <link rel="stylesheet" href="{% static '/book/style/css/main.css' %}">
+    <link rel="stylesheet" href=" {% static '/book/style/css/font-awesome.min.css' %}">
+    <style type="text/css">
+     body{background-color:#f5f5f5;}
+     .topmenu,.navbar li ul,.cdtit:after,.cdtit .more{background:#1f1e1e}
+     .cdtit,#pagenavi a{border-color:#121312;}
+     #pagenavi a{color:#0c0c0c;}
+     .navbar>li.current>a,#pagenavi>
+     span,.logbox .ainfo legend{background:#F4791F}
+     #pagenavi a:hover,.logbox .ainfo{border-color:#F4791F;}
+     .mlight{color:#F4791F;}
+</style>
+<link rel="stylesheet" href=" {% static '/book/style/css/swiper.min.css' %}">
+    {% block script %}{% endblock %}
+<script src="{% static '/book/style/js/osd.js' %}"></script>
+    <script src="{% static '/book/style/js/hm.js' %}"></script>
+<script src=" {% static '/book/style/js/jquery-2.2.4.min.js' %}" type="text/javascript"></script>
+<script src=" {% static '/book/style/js/zblogphp.js' %}" type="text/javascript"></script>
+<script src=" {% static '/book/style/js/c_html_js_add.js' %}" type="text/javascript"></script>
+<script src=" {% static '/book/style/js/tags.js' %}" type="text/javascript"></script>
+<link rel="stylesheet" href=" {% static '/book/style/css/newlypublished.css' %}" type="text/css">
+</head>
+<body>
+<nav >
+    <div class="bigbox" style="height: auto !important;">
+        <div class="maintop">
+                    <div class="wrap">
+                         <div class="mlogo">
+                            <a href="/" title="">
+                                <div style="font-size:35px;">聚宝盆</div>
+<!--                                <img src=" {% static '/book/style/img/logo.png' %}" alt="">-->
+                            </a>
+                        </div>
+                        <div class="topsh">
+                            <form action="{% url 'book:blog_search' %}" name="search" method="get" >
+                                <input name="keyword" type="search" placeholder="Search" class="hdin">
+                                <button  type="submit" class="" style="margin-left:1px;">搜索</button>
+                            </form>
+                        </div>
+                 <div class="alltop">
+<!--                    <p>-->
+<!--                        <a href="#" title="八零电子书">-->
+<!--                             <img src="./八零电子书-下载PDF电子书，TXT全集电子书免费下载站_files/80pdf.gif">-->
+<!--                            </a> -->
+<!--                        </p>-->
+                        </div>
+                    </div>
+                </div>
+<!--                 <div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;">
+
+                </div>     -->
+                <div class="wrap">
+                    <div class="topmenu">
+                        <ul class="navbar" data-icon="fa-home">
+                            <li>
+                                <a href="/">首页</a>
+                            </li>
+                            <li>
+                                <a href="/category/3">文学</a>
+                            </li>
+                            <li>
+                                <a href="/category/4">流行</a>
+                            </li>
+                            <li>
+                                <a href="/category/2">文化</a>
+                            </li>
+                            <li>
+                                <a href="/category/5">生活</a>
+                            </li>
+                            <li>
+                                <a href="/category/6">经营</a>
+                            </li>
+                            <li>
+                                <a href="/category/7">科技</a>
+                            </li>
+                            <li>
+                                <a href="/category/8">教育</a>
+                            </li>
+                            <li>
+                                <a href="/category/1">互联网</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+</nav>
+{% block content %}{% endblock %}
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b592cc81da1ce10b66596afbfa9fc971";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<div class="flinks">
+    <div class="cdtit"><h3>友情链接</h3><span class="tips">聚宝盆</span></div>
+    <ul class="ilinks">
+        <li><a href="http://blog.yuxiangshi.cn/" target="_blank" title="雨夜的博客">雨夜的博客</a></li>
+       <!-- <li><a href="http://www.yuxiangshi.cn/" target="_blank" title="聚宝盆">聚宝盆</a></li>-->
+    </ul>
+            </div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

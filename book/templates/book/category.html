@@ -1,0 +1,77 @@
+{% extends 'book/base.html' %}
+
+{% block title %}聚宝盆 – 一个专业PDF书籍收集和好书推荐的专业网站！{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+<div class="bigbox" style="height: auto !important;">
+       <div class="wrap" style="height: auto !important;">
+        <div class="pagenow">
+            <i class="fa fa-bookmark-o"></i>
+            <a href="/">首页</a>
+            <span>&gt;</span>
+                <a href="/" title="pdf电子书">pdf电子书</a>&gt;&nbsp;
+                <a href="/" title="文学">文学</a>
+                <span class="csort">
+                </span>
+            </div>
+            <div id="content" style="height: auto !important;">
+                     {% include 'book/left_site_bar.html' %}
+                <div id="contentleft">
+    			<ul class="loglist">
+                    {% for contact in contacts %}
+                <li class="con">
+                    <a href="{{contact.get_absolute_url}}" class="pic" target="_blank">
+                        <img src="/media/{{contact.book_imge}}" title="{{contact.title}}">
+                    </a>
+                    <div class="des">
+                        <h4><a href="{{contact.get_absolute_url}}" target="_blank">{{contact.title}} &nbsp; PDF电子书下载</a></h4>
+                        <p class="text">
+                            {{contact.body|truncatechars:100}}
+                        </p>
+                        <p class="attr">
+                            <span>{{contact.created_time|date:"m月d日"}}</span>
+
+                            <span>
+                                {% for category in  contact.category.all %}
+                                    [<a href="#">{{category.name}}</a>]
+                                {% endfor %}
+                            </span>
+
+						<span class="tags">
+						<i class="fa fa-tags"></i>
+                            {% for tag in contact.tags.all %}
+                            <a href="#">{{ tag.name }}</a>
+                            {% endfor  %}
+                        </span>
+                        </p>
+                    </div>
+                </li>
+                    {% endfor %}
+        		</ul>
+
+           <div id="pagenavi">
+                <div id="pages">
+                    {% if contacts.has_previous %}
+                 <a href="?page={{ contacts.previous_page_number }}">上一页</a>
+                    {% endif %}
+                 {% for pg in contacts.paginator.page_range %}
+                    {% if contacts.number == pg  %}
+                     <a href="?page={{pg}}">{{pg}}</a>
+                    {% else %}
+                    <a href="?page={{pg}}">{{pg}}</a>
+                    {% endif %}
+                 {% endfor %}
+                 {% if contacts.has_next %}
+                  <a href="?page={{ contacts.next_page_number }}">下一页</a>
+                  {% endif %}
+                </div>
+            </div>
+    		</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

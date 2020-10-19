@@ -1,0 +1,32 @@
+{% extends 'book/base.html' %}
+
+{% block title %}聚宝盆 – 一个专业PDF书籍收集和好书推荐的专业网站！{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+<div class="bigbox" style="height: auto !important;">
+       <div class="wrap" style="height: auto !important;">
+        <div class="pagenow">
+            <i class="fa fa-bookmark-o"></i>
+            <a href="/">首页</a>
+            <span>&gt;</span>
+                <a href="/" title="pdf电子书">pdf电子书</a>&gt;&nbsp;
+                <a href="/" title="文学">{{error_msg}}</a>
+                <span class="csort">
+                    {{error_msg}}
+                </span>
+            </div>
+            <div id="content" style="height: auto !important;">
+                     {% include 'book/left_site_bar.html' %}
+                <div id="contentleft">
+                    <ul class="loglist">
+                        抱歉，没有找到“{{error_msg}}”相关的PDF电子书。
+                    </ul>
+    		</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

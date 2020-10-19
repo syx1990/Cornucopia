@@ -1,0 +1,86 @@
+{% extends 'book/base.html' %}
+
+{% block title %}{{new_detail.title}}{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+<div class="bigbox">
+    <div class="wrap">
+        <div id="content">
+
+            <div id="sidebar">
+                {% include 'book/left_site_bar2.html' %}
+            </div>
+
+
+            <div id="contentleft">
+                <div class="logbox">
+                    <h1>{{new_detail.title}}</h1>
+                    <div class="data">
+
+                        <span class="cate">
+                            <i class="fa fa-folder"></i>
+                            {% for category in new_detail.category.all %}
+                            <a href="#" class="dc">{{category.name}}</a>
+                            {% endfor %}
+                        </span>
+                        <span class="cate">
+                            <i class="fa fa-folder"></i>
+                            {% for tag in new_detail.tags.all %}
+                            <a href="#" class="dc">{{tag.name}}</a>
+                            {% endfor %}
+                        </span>
+                        <span class="author">
+                            <i class="fa fa-user-plus"></i>
+                            {{new_detail.author}}
+                        </span>
+                        <span class="date"><i class="fa fa-calendar"></i>{{new_detail.created_time | date:"Y-m-d H:i:s"}}</span>
+                    </div>
+
+
+					 <div class="logcon">
+                        <p style="text-indent: 2em; text-align: left;">
+                            <img src="/media/{{new_detail.book_imge}}" style="float:left; width:362px; height:362px;" title="{{new_detail.title}}" alt="{{new_detail.title}}" width="362" height="362" border="0" vspace="0">PDF电子书：<strong>{{new_detail.title}}</strong></p>
+
+						<p style="text-indent: 2em; text-align: left;">PDF电子书作者：{{new_detail.books_author}}&nbsp;</p>
+                         <p style="text-indent: 2em; text-align: left;">出版社：{{new_detail.publish}}</p>
+                         <p style="text-indent: 2em; text-align: left;">出版年：{{new_detail.publish_year}}</p>
+                         <h2>
+	内容简介：
+</h2>
+<span style="font-size:13.3333px;">
+    {{new_detail.body}}
+</span><br>
+<br>
+<br>
+<h2>
+	作者简介：
+</h2>
+<span style="font-size:13.3333px;">
+    {{new_detail.abstract}}
+</span><p></p>
+                     </div>
+    <div class="downarea">
+         <a href="{{new_detail.purchase}}" target="_blank">购买电子书阅读器</a>
+		 <a rel="nofollow" href="{{new_detail.download_adress}}" target="_blank">
+             下载地址：<i class="fa fa-angle-down"></i>{{new_detail.title}}</a>
+        </div>
+<!--                        <fieldset class="ainfo">-->
+<!--                        <legend align="center">点击这里复制本文地址</legend>-->
+
+<!--                        <input type="text" value="##" id="aurl">-->
+<!--                            <script type="text/javascript" charset="UTF-8">-->
+<!--                                $(function(){-->
+<!--                                    $("input#aurl").val(window.location.href);-->
+<!--                                });-->
+<!--                            </script>-->
+<!--                        <i class="fa fa-thumb-tack"></i>以上内容均来自网络，由网友制作上传，<a href="http://www.80pdf.com/" class="mlight">八零PDF电子书网</a>整理呈现，PDF电子书资源只做学习和交流使用，版权归原作者所有，本站所有PDF书籍不得用于商业用途，请在下载后24小时内删除！-->
+<!--                        </fieldset>-->
+<!--<link rel="stylesheet" href=" {% static '/book/style/css/share.min.css' %}" type="text/css">-->
+<!--<div class="nextlog">-->
+<!--<div class="prev"></div>-->
+<!--&lt;!&ndash;    <div class="next">下一篇：<a href="#">海都物语 ： 威尼斯一千年</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+
+{% endblock %}

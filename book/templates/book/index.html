@@ -1,0 +1,219 @@
+{% extends 'book/base.html' %}
+
+{% block title %}聚宝盆 – 一个专业PDF书籍收集和好书推荐的专业网站！{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+
+<div class="bigbox" style="height: auto !important;">
+    <div class="wrap" style="height: auto !important;">
+        <div class="topbox">
+
+<div class="swiper-container cdmslider swiper-container-fade swiper-container-horizontal">
+
+<div class="swiper-wrapper" style="transition-duration: 0ms;">
+<div class="swiper-slide" style="width:500px;opacity:1; transform:translate3d(0px, 0px,0px);transition-duration:0ms;">
+    <a href="{{item.get_absolute_url}}" class="pic" target="_blank">
+        <img src="/media/{{item.book_imge}}" alt="{{item.title}}" title="{{item.title}}">
+    </a>
+</div>
+ </div>
+<div class="swiper-pagination swiper-pagination-white cdmslider-pagination swiper-pagination-clickable swiper-pagination-bullets">
+    <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+</div>
+    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+</div>
+
+<div class="inews">
+    <div class="cdtit"><h3>最新</h3><div class="inpr" data-total="774"><p>今日发布<b>{{time_book_count}}</b>本，本站一共<b>{{book_count}}</b>本电子书</p></div></div>
+                <ul>
+                    {% for new in news %}
+                    <li>
+                        <a href="{{new.get_absolute_url}}" title="{{new.title}}" target="_blank"><span>{{ new.created_time | date:" Y年m月d日" }}</span>{{new.title}} &nbsp; PDF电子书下载</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+<div id="content" style="height: auto !important;">
+    <div class="cmsbox">
+        <div class="cmslist">
+            <div class="cdtit">
+                <h3>文学</h3>
+                    <a href="/category/3" class="more">更多</a>
+                    </div>
+
+            <ul>
+                {% for literatures in literature %}
+                <li>
+                    <span>
+                        {{literatures.created_time|date:"d日"}}
+                    </span>
+                    <a href="{{literatures.get_absolute_url}}" title="{{literatures.title}}" target="_blank">{{literatures.title}} &nbsp; PDF电子书下载</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="cmslist">
+            <div class="cdtit">
+                <h3>流行</h3>
+                <a href="/category/4" class="more">更多</a>
+            </div>
+            <ul>
+                {% for populars in popular %}
+                <li>
+                    <span>
+                        {{populars.created_time|date:"d日"}}
+                    </span>
+                    <a href="{{populars.get_absolute_url}}" title="{{populars.title}}" target="_blank">{{populars.title}} &nbsp; PDF电子书下载</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="cmslist">
+            <div class="cdtit">
+                <h3>文化</h3>
+                <a href="/category/2" class="more">更多</a>
+            </div>
+            <ul>
+                {% for Cultures in Culture %}
+                <li>
+                    <span>{{Cultures.created_time | date:"d日"}}</span>
+                    <a href="{{Cultures.get_absolute_url}}" title="{{Cultures.title}}" target="_blank"> {{Cultures.title}}  &nbsp; PDF电子书下载</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="cmslist">
+            <div class="cdtit">
+                <h3>生活</h3>
+                <a href="/category/5" class="more">更多</a>
+            </div>
+            <ul>
+                {% for lifes in life %}
+                <li>
+                    <span>
+                        {{lifes.created_time|date:"d日"}}
+                    </span>
+                    <a href="{{lifes.get_absolute_url}}" title="{{lifes.title}}" target="_blank"> {{lifes.title}}  &nbsp; PDF电子书下载</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="cmslist">
+            <div class="cdtit">
+                <h3>经营</h3>
+                <a href="/category/6" class="more">更多</a>
+            </div>
+            <ul>
+                {% for managements in management %}
+                <li>
+                    <span>
+                        {{managements.created_time|date:"d日"}}
+                    </span>
+                    <a href="{{managements.get_absolute_url}}" title="{{managements.title}}" target="_blank">{{managements.title}} &nbsp; PDF电子书下载</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="cmslist">
+            <div class="cdtit">
+                <h3>科技</h3>
+                <a href="/category/7" class="more">更多</a>
+            </div>
+            <ul>
+                {% for technologys in technology %}
+                <li>
+                    <span>
+                        {{technologys.created_time|date:"d日"}}
+                    </span>
+                    <a href="{{technologys.get_absolute_url}}" title="{{technologys.title}}" target="_blank">{{technologys.title}} &nbsp; PDF电子书下载</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="cmslist">
+            <div class="cdtit">
+                <h3>教育</h3>
+                <a href="/category/8" class="more">更多</a>
+            </div>
+            <ul>
+                {% for educations in education %}
+                <li>
+                    <span>
+                        {{educations.created_time|date:"d日"}}
+                    </span>
+                    <a href="{{educations.get_absolute_url}}" title="{{educations.title}}" target="_blank">{{educations.title}} &nbsp; PDF电子书下载</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="cmslist">
+            <div class="cdtit">
+                <h3>互联网</h3>
+                <a href="/category/1" class="more">更多</a>
+            </div>
+            <ul>
+                 {% for internets in internet %}
+                <li>
+                    <span>
+                        {{internets.created_time|date:"d日"}}
+                    </span>
+                    <a href="{{internets.get_absolute_url}}" title="{{internets.title}}" target="_blank">{{internets.title}} &nbsp; PDF电子书下载</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+     {% include 'book/left_site_bar.html' %}
+<div id="contentleft">
+    		<ul class="loglist">
+                {% for contact in contacts  %}
+        <li class="con">
+                    <a href="#" class="pic" target="_blank"><img src="/media/{{contact.book_imge}}" alt="{{contact.title}}" title="{{contact.title}}"></a>
+                    <div class="des">
+                        <h4><a href="{{contact.get_absolute_url}}" target="_blank">{{contact.title}} &nbsp; PDF电子书下载</a></h4>
+                        <p class="text">{{contact.body|truncatechars:100}}</p>
+
+						<p class="attr"><span> {{contact.created_time|date:"m月d日"}}</span>
+                                <span>
+                                    {% for category in  contact.category.all %}
+                                    [<a href="#">{{category.name}}</a>]
+                                    {% endfor %}
+                                </span>
+
+                                <span class="tags">
+                                    <i class="fa fa-tags"></i>
+                                    {% for tag in contact.tags.all %}
+                                    <a href="#">{{ tag.name }}</a>
+                                    {% endfor  %}
+                                </span>
+                        </p>
+                    </div>
+                </li>
+                {% endfor %}
+                </ul>
+
+             <div id="pagenavi">
+                <div id="pages">
+                    {% if contacts.has_previous %}
+                 <a href="?page={{ contacts.previous_page_number }}">上一页</a>
+                    {% endif %}
+                 {% for pg in contacts.paginator.page_range %}
+                    {% if contacts.number == pg  %}
+                     <a href="?page={{pg}}">{{pg}}</a>
+                    {% else %}
+                    <a href="?page={{pg}}">{{pg}}</a>
+                    {% endif %}
+                 {% endfor %}
+                 {% if contacts.has_next %}
+                  <a href="?page={{ contacts.next_page_number }}">下一页</a>
+                  {% endif %}
+                </div>
+            </div>
+
+</div>
+
+{% endblock %}
